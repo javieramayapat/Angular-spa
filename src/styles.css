@@ -4,6 +4,9 @@ jumbotron{
     color: white;
 }
 
+body{
+  padding-bottom: 50px;
+}
 
 
 /* Animaciones */
