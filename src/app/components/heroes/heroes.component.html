@@ -1,20 +1,14 @@
 <h1>Héroes <small>Marvel y DC</small></h1>
 <hr>
 <div class="card-columns">
-    <div class="card" *ngFor="let heroe of heroes; let i = index">
-        <img class="card-img-top img-fluid" [src]="heroe.img" [alt]="heroe.nombre">
-        <div class="card-body">
-            <h5 class="card-title">{{ heroe.nombre}}</h5>
-            <p class="card-text">{{ heroe.bio }}</p>
-            <p class="card-text"><small class="text-muted">{{ heroe.aparicion}}</small></p>
-
-            <!-- Moverme a un nuevo componente usando un rutas con parámetros -->
-            <button (click)="verHeroe(i)" type="button" class="btn btn-outline-primary btn-block">Ver más...
-
-            </button>
-
-            <!-- Moverme a un nuevo componente usando un rutas con parámetros -->
-            <!-- <a [routerLink]="['/heroe',i]" class="btn btn-outline-primary btn-block">Ver mas Link...</a> -->
-        </div>
-    </div>
+    <!-- [heroe] hace referencia a la propiedad heroe de heroeTarjetaCompoente
+         = "heroe" La igulación a heroe referencia a cada objeto de heroe que
+                   se obtiene al recorrer el arreglo de heroes ya cargado en el
+                   heroesComponent.ts.
+         Con esto cada héroe se envia al heroeTarjetaComponet recibiendolo como
+         un @input y despues cargandolo al heroe-tarjeta.compoent.html. generando
+         un componente reutilizable.          
+     -->
+    <app-heroe-tarjeta [heroe]="heroe" [i]="i" *ngFor="let heroe of heroes; let i = index"></app-heroe-tarjeta>
+    
 </div>
